@@ -34,3 +34,7 @@ full outer join
 
 -- MANY TO MANY
 -- Inject an associative table in the middle. It's actually two 1 to many relationships.
+
+
+-- Remove duplicates - use distinct in select
+select distinct(category) from restaurant;
