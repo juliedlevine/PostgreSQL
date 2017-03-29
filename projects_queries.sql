@@ -145,8 +145,6 @@ WHERE
 SELECT
     distinct on (project.name) project.name
 FROM
-    -- left table, all rows here represented no matter what
-    -- All projects will be shown even if they do not have any tech
     project
 LEFT OUTER JOIN
     project_uses_tech on project_uses_tech.project_id = project.id
@@ -178,4 +176,4 @@ FROM
     GROUP BY
     	tech_name
     ORDER BY
-        num_projects_using) as num_projects
+        num_projects_using) as num_projects;
