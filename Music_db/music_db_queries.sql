@@ -94,3 +94,34 @@ FROM
 ORDER BY
     sum desc
 LIMIT 1;
+
+
+-- 9. Who are the 5 most prolific artists based on the number of albums they have recorded?
+-- Top 5 artists based on number of albums
+SELECT
+    artist.name,
+    count(album.name)
+FROM
+    artist
+LEFT OUTER JOIN
+    album on artist.id = album.artist_id
+GROUP BY
+    artist.id
+ORDER BY
+    count desc
+LIMIT
+    5;
+
+
+-- 10. What are all the tracks a given artist has recorded?
+SELECT
+    artist.name,
+    track.name
+FROM
+	track,
+	album,
+	artist
+WHERE
+	track.album_id = album.id
+	and album.artist_id = artist.id
+	and artist.name = 'Belle & Sebastian';
