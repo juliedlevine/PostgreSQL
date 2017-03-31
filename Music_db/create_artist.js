@@ -15,7 +15,6 @@ function create_artist() {
     return prompt('Artist name? ')
         .then(function(artist) {
             var insert = "insert into artist values(default, " + "'" + artist + "'" + ") returning id";
-            prompt.end();
             return [artist, db.one(insert)];
         })
         .spread(function(artist, result) {
